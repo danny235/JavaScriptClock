@@ -4,12 +4,14 @@ let type1 = document.querySelector(".type1");
 let type2 = document.querySelector(".type2");
 let display = document.querySelector("h1");
 var date = new Date();
-
+var ng_offset = date.getTimezoneOffset();
+console.log(ng_offset);
 // Time Getter
 function showTime() {
     var date = new Date();    
     var h, m, s, time;
-    date.setUTCHours(4);
+    var ng_offset = date.getTimezoneOffset();
+    date.setMinutes(date.getMinutes() + (60+ng_offset));
     h = date.getHours();
     m = date.getMinutes();
     s = date.getSeconds();
