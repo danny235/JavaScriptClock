@@ -7,13 +7,12 @@ var date = new Date();
 
 // Time Getter
 function showTime() {
-    var date = new Date();
-    
+    var date = new Date();    
     var h, m, s, time;
+    date.setUTCHours(4);
     h = date.getHours();
     m = date.getMinutes();
     s = date.getSeconds();
-    
     
 
     if(h == 0) {
