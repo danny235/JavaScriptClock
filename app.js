@@ -37,6 +37,16 @@ function showTime() {
         s = `0${s}`
     }
     
+    type1.addEventListener('click', function(){
+        type1.className += " active";
+        type2.classList.remove("active");
+    });
+    
+    type2.addEventListener('click', function(){
+        type2.className += " active";
+        type1.classList.remove("active");
+    });
+
     time = `${h}:${m}:${s}`;
     display.innerHTML = time;
     setTimeout(showTime, 1000);
@@ -53,14 +63,3 @@ for(let i = 0, max = dayOfWeek.length; i < max; i++) {
     }
 }
 
-type1.addEventListener('click', (function(e){
-    e.preventDefault;
-    type1.className += " active";
-    type2.classList.remove("active");
-}))(e);
-
-type2.addEventListener('click', (function(e){
-    e.preventDefault;
-    type2.className += " active";
-    type1.classList.remove("active");
-}))(e);

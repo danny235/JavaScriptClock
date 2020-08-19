@@ -40,5 +40,33 @@ body {
 
 .timeType h3 {
     display: inline-block;
-    padding-left: 90px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+@media(max-width: 768px) {
+    .listItems {
+        margin: 50px 50px 0;
+    }
+    
+    .daysOfWeek li {
+        list-style: none;
+        display: inline-block;
+        padding: 1px;
+        text-transform: uppercase;
+    }
+    /* ----------------------------------------- */
+    
+    /* Time object */
+    .timeObject h1{
+        margin: 0 0 15px;
+        font-weight: 300;
+        font-size: 70px;
+    }
+
+    .timeType h3 {
+        display: inline-block;
+        padding: 9px;
+        cursor: pointer;
+    }
 }
