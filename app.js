@@ -53,14 +53,14 @@ for(let i = 0, max = dayOfWeek.length; i < max; i++) {
     }
 }
 
-type1.addEventListener('click', (function(e){
+type1.addEventListener('click', function(){
     e.preventDefault;
     type1.className += " active";
     type2.classList.remove("active");
-}))(e);
+});
 
-type2.addEventListener('click', (function(e){
+type2.addEventListener('click', (function(){
     e.preventDefault;
     type2.className += " active";
     type1.classList.remove("active");
-}))(e);
+});
