@@ -36,7 +36,7 @@ function showTime() {
     if (s < 10) {
         s = `0${s}`
     }
-    
+
     type1.addEventListener('click', function(){
         type1.className += " active";
         type2.classList.remove("active");
@@ -62,4 +62,5 @@ for(let i = 0, max = dayOfWeek.length; i < max; i++) {
         dayOfWeek[i].className += "active";
     }
 }
+
 
