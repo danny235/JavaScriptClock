@@ -4,13 +4,13 @@ let type1 = document.querySelector(".type1");
 let type2 = document.querySelector(".type2");
 let display = document.querySelector("h1");
 
+document.addEventListener("onload", showTime());
 
 // Time Getter
 function showTime() {
+    type1.className += " active";
     var date = new Date();    
     var h, m, s, time;
-    var ng_offset = date.getTimezoneOffset();
-    date.setMinutes(date.getMinutes() + (60+ng_offset));
     h = date.getHours();
     m = date.getMinutes();
     s = date.getSeconds();
@@ -20,7 +20,7 @@ function showTime() {
         h = 12;
     }
 
-    if (h > 12) {
+    if (h >= 12) {
         h -= 12;
         session = "PM"
     }
@@ -37,17 +37,17 @@ function showTime() {
         s = `0${s}`
     }
 
-    /*
-    type1.addEventListener('click', function(){
-        type1.className += " active";
-        type2.classList.remove("active");
-    });
+
+    // type1.addEventListener('click', function(){
+    //     type1.className += " active";
+    //     type2.classList.remove("active");
+    // });
     
-    type2.addEventListener('click', function(){
-        type2.className += " active";
-        type1.classList.remove("active");
-    });
-    */
+    // type2.addEventListener('click', function(){
+    //     type2.className += " active";
+    //     type1.classList.remove("active");
+    // });
+
 
     time = `${h}:${m}:${s} ${session}`;
     display.innerHTML = time;
@@ -60,10 +60,17 @@ showTime();
 for(let i = 0, max = dayOfWeek.length; i < max; i++) {
     var date = new Date();
     var day = date.getDay();
+    var screenWidth = window.innerWidth;
 
     if (i === day) {
         dayOfWeek[i].className += "active";
     }
+
+    if (screenWidth < 768 && dayOfWeek[i].className == "active") {
+        dayOfWeek[i].style.display = "inline-block";
+    }
+
+    
 }
 
 

@@ -49,26 +49,32 @@ body {
         margin: 50px 50px 0;
     }
     
-    .daysOfWeek li {
-        list-style: none;
-        display: inline-block;
-        padding: 1px;
-        text-transform: uppercase;
-    }
     /* ----------------------------------------- */
     
     /* Time object */
     .timeObject h1{
-        margin: 0 0 13px;
+        margin: 0 10px;
         font-weight: 300;
         font-size: 60px;
+        position: relative;
+        top: 210px;
     }
 
     .timeType h3 {
-        display: inline-block;
+        display: block;
         padding: 9px;
         cursor: pointer;
+        position: relative;
+        top: 250px;
     }
 
+    .daysOfWeek li {
+        list-style: none;
+        display: none;
+        padding: 3px;
+        text-transform: uppercase;
+        position: relative;
+        top: 160px;
+    }
 }
 
