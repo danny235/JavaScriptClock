@@ -59,9 +59,9 @@ body {
     
     /* Time object */
     .timeObject h1{
-        margin: 0 0 15px;
+        margin: 0 0 13px;
         font-weight: 300;
-        font-size: 70px;
+        font-size: 60px;
     }
 
     .timeType h3 {

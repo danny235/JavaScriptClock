@@ -14,7 +14,7 @@ function showTime() {
     h = date.getHours();
     m = date.getMinutes();
     s = date.getSeconds();
-    
+    session = "AM";
 
     if(h == 0) {
         h = 12;
@@ -22,6 +22,7 @@ function showTime() {
 
     if (h > 12) {
         h -= 12;
+        session = "PM"
     }
 
     if (h < 10) {
@@ -36,6 +37,7 @@ function showTime() {
         s = `0${s}`
     }
 
+    /*
     type1.addEventListener('click', function(){
         type1.className += " active";
         type2.classList.remove("active");
@@ -45,10 +47,12 @@ function showTime() {
         type2.className += " active";
         type1.classList.remove("active");
     });
+    */
 
-    time = `${h}:${m}:${s}`;
+    time = `${h}:${m}:${s} ${session}`;
     display.innerHTML = time;
     setTimeout(showTime, 1000);
+    
 }
 showTime();
 
