@@ -9,7 +9,10 @@ document.addEventListener("DOMContentLoaded", milTime);
 // Show military time
 function milTime() {
 
+    // clearing the hourTime
     clearTimeout(window.htime);
+
+    // declaration
     var date = new Date();
     let h = date.getHours();
     let m = date.getMinutes();
@@ -34,23 +37,29 @@ function milTime() {
 // Show 12 hour time
 function hourTime() {
 
+    // clearing the militaryTime
     clearTimeout(mTime);
+
+    // declaration
     var date = new Date();
     let h = date.getHours();
     let m = date.getMinutes();
     let s = date.getSeconds();
     session = "AM";
+
     // logic
     if (h > 12) {
         h -= 12;
         session = "PM"
     }
-    
     m = m < 10 ? m = `0${m}` : m;
     s = s < 10 ? s = `0${s}` : s;
-    window.htime = setTimeout(hourTime, 1000);
-    let time = `${h}:${m}:${s} ${session}`;
 
+    // make this global so it can be accessed by militaryTime
+    window.htime = setTimeout(hourTime, 1000);
+
+    // time output
+    let time = `${h}:${m}:${s} ${session}`;
     display.innerHTML = time;
     type1.classList.remove('active');
     type2.className += " active";
