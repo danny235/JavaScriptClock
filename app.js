@@ -1,4 +1,3 @@
-
 let dayOfWeek = document.querySelectorAll("li");
 let type1 = document.querySelector(".type1");
 let type2 = document.querySelector(".type2");
@@ -51,6 +50,10 @@ function hourTime() {
     // logic
     if (h > 12) {
         h -= 12;
+
+    }
+
+    if (h >= 12) {
         session = "PM"
     }
     h = h == 0 ? h = 12 : h;
