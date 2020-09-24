@@ -10,22 +10,29 @@ function milTime() {
 
     // clearing the hourTime
     clearTimeout(window.htime);
+    function createMiltimeObject() {
+        // declaration
+        var date = new Date();
+        let h = date.getHours();
+        let m = date.getMinutes();
+        let s = date.getSeconds();
 
-    // declaration
-    var date = new Date();
-    let h = date.getHours();
-    let m = date.getMinutes();
-    let s = date.getSeconds();
+        // logic
+        h = h < 10 ? h = `0${h}` : h;
+        m = m < 10 ? m = `0${m}` : m;
+        s = s < 10 ? s = `0${s}` : s;
+        // time output
+        let time = `${h}:${m}:${s}`;
+        display.innerHTML = time;
+        mTime = setTimeout(createMiltimeObject, 1000);
 
-    // logic
-    h = h < 10 ? h = `0${h}` : h;
-    m = m < 10 ? m = `0${m}` : m;
-    s = s < 10 ? s = `0${s}` : s;
+    }
 
-    // time output
-    let time = `${h}:${m}:${s}`;
-    mTime = setTimeout(milTime, 1000);
-    display.innerHTML = time;
+
+
+    createMiltimeObject();
+
+
     type2.classList.remove('active');
     type1.className += " active";
 
@@ -40,32 +47,38 @@ function hourTime() {
     // clearing the militaryTime
     clearTimeout(mTime);
 
-    // declaration
-    var date = new Date();
-    let h = date.getHours();
-    let m = date.getMinutes();
-    let s = date.getSeconds();
-    session = "AM";
+    function createHourTime() {
+        // declaration
+        var date = new Date();
+        let h = date.getHours();
+        let m = date.getMinutes();
+        let s = date.getSeconds();
+        session = "AM";
 
-    // logic
-    if (h > 12) {
-        h -= 12;
+        // logic
+        if (h > 12) {
+            h -= 12;
+        }
+
+        if (h <= 12) {
+            session = "PM"
+        }
+        h = h == 0 ? h = 12 : h;
+        h = h < 10 ? h = `0${h}` : h;
+        m = m < 10 ? m = `0${m}` : m;
+        s = s < 10 ? s = `0${s}` : s;
+
+        // make this global so it can be accessed by militaryTime
+        window.htime = setTimeout(createHourTime, 1000);
+
+        // time output
+        let time = `${h}:${m}:${s} ${session}`;
+        display.innerHTML = time;
     }
 
-    if (h <= 12) {
-        session = "PM"
-    }
-    h = h == 0 ? h = 12 : h;
-    h = h < 10 ? h = `0${h}` : h;
-    m = m < 10 ? m = `0${m}` : m;
-    s = s < 10 ? s = `0${s}` : s;
+    createHourTime();
 
-    // make this global so it can be accessed by militaryTime
-    window.htime = setTimeout(hourTime, 1000);
 
-    // time output
-    let time = `<span>${h}</span>:${m}:${s} ${session}`;
-    display.innerHTML = time;
     type1.classList.remove('active');
     type2.className += " active";
 
